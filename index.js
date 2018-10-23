@@ -26,9 +26,13 @@ const task1 = newTask('Clean the cat litter', 'Take all the poops out of the lit
 const task2 = newTask('Do the laundry', 'sad face emoji');
 const tasks = [task1, task2];
 
-task1.logState(); //clean cat litter HAS NOT been completed
-task1.markCompleted(); //mark as complete
-task1.logState(); //clean cat litter HAS been completed
+// task1.logState(); //clean cat litter HAS NOT been completed
+// task1.markCompleted(); //mark as complete
+// task1.logState(); //clean cat litter HAS been completed
+
+console.log(task1.title)
+task1.markCompleted();
+task1.logState();
 
 // console.log(tasks);
 
