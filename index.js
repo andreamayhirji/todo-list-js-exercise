@@ -1,23 +1,24 @@
-// We are using an object to keep all the task data together, which keeps the code more organized.
+// USING METHODS INSTEAD
 
 function newTask(title, description) {
   const task = {
     title: title,
     description: description,
-    complete: false
+    complete: false,
+    
+    //log task function
+    logState: function () {
+      console.log(`${this.title} has${this.complete ? ' ' : ' not '}been completed`);
+    },
+    
+    //mark a task as complete function
+    markCompleted: function () {
+      this.complete = true;
+    }
   };
   return task;
 }
 
-//log task function
-function logTaskState(task) {
-  console.log(`${task.title} has${task.complete ? ' ' : ' not '}been completed`);
-}
-
-//mark a task as complete function
-function completeTask(task) {
-  task.complete = true;
-}
 
 /// NEW DRIVER CODE BELOW
 
@@ -25,15 +26,11 @@ const task1 = newTask('Clean the cat litter', 'Take all the poops out of the lit
 const task2 = newTask('Do the laundry', 'sad face emoji');
 const tasks = [task1, task2];
 
-logTaskState(task1);
-completeTask(task1); 
-logTaskState(task1); 
+task1.logState(); //clean cat litter HAS NOT been completed
+task1.markCompleted(); //mark as complete
+task1.logState(); //clean cat litter HAS been completed
 
 // console.log(tasks);
-
-// each function now accepts a task object instead of an array index.
-// passing the task object into functi on so they're not dependent on variables outside of their own scope.
-
 
 
 
